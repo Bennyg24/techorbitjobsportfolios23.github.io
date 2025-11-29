@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Analyst Portfolio - Brenda Phillips</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- Systems Analyst Design: High-Energy, Purple/Cyan, Process Flow --- */
+        :root {
+            --sa-primary: #6A1B9A; /* Deep Purple */
+            --sa-accent: #00BCD4; /* Cyan/Turquoise */
+            --sa-background: #F0F4F7;
+            --sa-text: #333;
+            --sa-light: #E1F5FE;
+            --sa-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--sa-text);
+            background: var(--sa-background);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: var(--sa-accent); transition: color 0.3s; }
+        .section { padding: 80px 0; }
+
+        /* --- Header/Profile Area --- */
+        .sa-header {
+            background: var(--sa-primary);
+            color: white;
+            padding: 40px 0;
+            border-bottom: 6px solid var(--sa-accent);
+        }
+
+        .sa-profile-area {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .sa-left-panel {
+            flex-shrink: 0;
+            width: 250px;
+            text-align: center;
+            padding-right: 30px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sa-profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 0 0 8px var(--sa-accent);
+            margin-bottom: 15px;
+        }
+
+        .sa-contact-details {
+            font-size: 0.9em;
+            text-align: left;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+        .sa-contact-details p { margin: 5px 0; color: var(--sa-light); }
+
+        .sa-main-content { flex-grow: 1; }
+
+        #dynamicGreeting {
+            font-size: 1.2em;
+            color: var(--sa-accent);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .sa-header h1 {
+            font-size: 3em;
+            margin: 0 0 10px;
+            font-weight: 900;
+        }
+        .sa-header h2 {
+            font-size: 1.4em;
+            color: var(--sa-accent);
+            margin-bottom: 20px;
+        }
+
+        /* --- Project Grid Styles --- */
+        .sa-projects-section {
+             background: white;
+             padding-top: 0;
+             padding-bottom: 60px;
+        }
+        .sa-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .sa-project-card {
+            background: var(--sa-card-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--sa-shadow);
+            overflow: hidden;
+            text-align: left;
+        }
+        .sa-project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--sa-accent);
+        }
+        .sa-project-content { padding: 20px; }
+        .sa-project-content h4 { color: var(--sa-primary); margin-top: 0; font-size: 1.4em; }
+        .sa-project-content a { font-weight: 700; color: var(--sa-accent); }
+
+
+        /* --- Skills and Competencies --- */
+        .sa-section-title {
+            font-size: 2.5em;
+            color: var(--sa-primary);
+            margin-bottom: 50px;
+        }
+        
+        .sa-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .sa-skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-bottom: 3px solid var(--sa-primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .sa-skill-card:hover { transform: translateY(-5px); }
+        .sa-skill-card h4 { color: var(--sa-primary); margin-top: 0; }
+        .sa-skill-card p { font-size: 0.9em; }
+
+        /* --- Call to Action (CTA) --- */
+        .sa-cta-section {
+            background: var(--sa-primary);
+            padding: 70px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        .sa-cta-btn {
+            display: inline-block;
+            background: var(--sa-accent);
+            color: var(--sa-primary);
+            padding: 18px 50px;
+            border-radius: 5px;
+            font-weight: 900;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px var(--sa-accent);
+            transition: all 0.3s ease;
+        }
+        .sa-cta-btn:hover { background: white; transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .sa-profile-area { flex-direction: column; text-align: center; }
+            .sa-left-panel { width: 100%; padding-right: 0; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 20px; }
+            .sa-contact-details { text-align: center; }
+            .sa-main-content { padding-top: 20px; }
+            .sa-header h1 { font-size: 2.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sa-header">
+        <div class="container">
+            <div class="sa-profile-area">
+                <div class="sa-left-panel">
+                    <img src="https://techorbitjobs.com/wp-content/uploads/2025/10/testimonial-8.webp" alt="Brenda Phillips Profile" class="sa-profile-img">
+                    <div class="sa-contact-details">
+                        <p><strong>Location:</strong> Texas, USA</p>
+                        <p><strong>Email:</strong> brenda.phillips@example.com</p>
+                        <p><strong>LinkedIn:</strong> [Your LinkedIn URL]</p>
+                        <p><strong>Certifications:</strong> PMP, CBAP (Placeholder)</p>
+                    </div>
+                </div>
+
+                <div class="sa-main-content">
+                    <div id="dynamicGreeting"></div>
+                    <h1>BRENDA PHILLIPS</h1>
+                    <h2>CERTIFIED SYSTEMS ANALYST</h2>
+                    <p>
+                        As a pragmatic Systems Analyst, I bridge the gap between complex business requirements and technical solution design. I specialize in requirements gathering, process modeling (UML/BPMN), system implementation, and enhancing organizational efficiency through robust, integrated IT solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="sa-section-title">TECHNICAL SKILLS & CORE COMPETENCIES</h2>
+            <div class="sa-skills-grid">
+                <div class="sa-skill-card">
+                    <h4>Requirements Engineering</h4>
+                    <p>Elicitation, BRD/FRD/SRS Documentation, Stakeholder Management, Traceability.</p>
+                </div>
+                <div class="sa-skill-card">
+                    <h4>Modeling & Process Flow</h4>
+                    <p>UML Diagrams (Activity, Use Case), BPMN, Data Flow Diagrams (DFD), Gap Analysis.</p>
+                </div>
+                <div class="sa-skill-card">
+                    <h4>Database & Tools</h4>
+                    <p>Intermediate SQL, JIRA, Confluence, Visio/Lucidchart, SDLC Methodologies (Agile/Scrum).</p>
+                </div>
+                <div class="sa-skill-card">
+                    <h4>System Integration & Testing</h4>
+                    <p>Coordinating UAT/System Testing, Change Management, ERP/CRM system integration.</p>
+                </div>
+            </div>
+
+            <h2 class="sa-section-title">FEATURED SYSTEM SOLUTIONS</h2>
+            <div class="sa-project-grid">
+                <div class="sa-project-card">
+                    <img src="project1.png" alt="UML Diagram for System Migration">
+                    <div class="sa-project-content">
+                        <h4>CRM System Migration & Integration</h4>
+                        <p>Managed the end-to-end migration from Legacy CRM to Salesforce, focusing on data mapping, UAT, and user training.</p>
+                        <a href="[Link to Change Management Plan]">View Case Study</a>
+                    </div>
+                </div>
+                <div class="sa-project-card">
+                    <img src="project2.png" alt="BPMN Diagram for Onboarding Process">
+                    <div class="sa-project-content">
+                        <h4>Automated Employee Onboarding Process</h4>
+                        <p>Used BPMN to model and redesign the HR onboarding process, reducing the time-to-hire paperwork by 40%.</p>
+                        <a href="[Link to Process Flow Documentation]">View Process Doc</a>
+                    </div>
+                </div>
+                <div class="sa-project-card">
+                    <img src="project3.png" alt="Requirements Traceability Matrix Screenshot">
+                    <div class="sa-project-content">
+                        <h4>Financial Reporting System Upgrade</h4>
+                        <p>Authored the detailed SRS (System Requirements Specification) for a critical financial reporting platform upgrade.</p>
+                        <a href="[Link to Requirements Document]">View Requirements</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sa-cta-section">
+        <div class="container">
+            <h3>NEED SYSTEM IMPLEMENTATION YOU CAN TRUST?</h3>
+            <a href="[Link to Contact/Project Inquiry]" class="sa-cta-btn">GET STARTED NOW</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetingElement = document.getElementById('dynamicGreeting');
+            const date = new Date();
+            const hour = date.getHours();
+            let greeting;
+            if (hour < 12) { greeting = 'Good morning!'; } 
+            else if (hour < 18) { greeting = 'Good afternoon!'; } 
+            else { greeting = 'Good evening!'; }
+            if (greetingElement) { greetingElement.textContent = greeting + ' Welcome to my portfolio,'; }
+        });
+    </script>
+</body>
+</html>
